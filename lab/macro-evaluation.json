@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "status": "reviewed",
+  "method": "Expert heuristic assessment after browser review; not a participant study",
+  "reviewed_at": "2026-11-06",
+  "reviewer": "Codex visual comparison and interaction checks",
+  "scale": {
+    "min": 1,
+    "max": 5,
+    "anchors": {
+      "1": "poor",
+      "3": "adequate",
+      "5": "strong"
+    }
+  },
+  "rubric_source": "Six self-defined criteria carried over from the controlled variation study. The lab permits 5–6 criteria; these are design judgements, not a course-supplied scoring instrument.",
+  "viewport": {
+    "width": 412,
+    "height": 1010
+  },
+  "task": "From the initial exploration screen, choose a nearby HKUST destination and inspect what to look for before beginning a journey.",
+  "controls": {
+    "starting_state": "Initial choice; no route in progress, no destination dialog open.",
+    "places": [
+      "Red Bird",
+      "LG7 Lawn Area",
+      "Starbucks"
+    ],
+    "origin": {
+      "lat": 22.3365262,
+      "lng": 114.2629606,
+      "label": "Illustrative starting point"
+    },
+    "distances_m": [
+      100,
+      273,
+      152
+    ],
+    "light": 45,
+    "collection": "0 of 3",
+    "primary_candidate": "Red Bird",
+    "shared_actions": [
+      "Search and filter",
+      "Scan resets to the same three fixtures",
+      "Open any of the three destination details",
+      "Inspect identical description, reference photo, task and entrance uncertainty",
+      "Begin Journey shows a sample-only confirmation without tracking or saving",
+      "Open sample passport"
+    ],
+    "changed_variable": "Information priority and composition: map dominance, list dominance or collection dominance. Shared content can move behind an explicit disclosure; it is not removed.",
+    "phone_frame": {
+      "width": 412,
+      "height": 900
+    }
+  },
+  "options": {
+    "a": {
+      "name": "Map first",
+      "url": "macro.html?option=a",
+      "screenshot": "evidence/macro-a.png",
+      "scores": {
+        "figma_fidelity": 4,
+        "outdoor_readability": 3,
+        "destination_recognition": 4,
+        "next_action_clarity": 4,
+        "collection_loop_clarity": 3,
+        "reachability": 4
+      },
+      "total": 22,
+      "rationale": "Closest to Linda's map-led hierarchy, small pastel filters, edge light counter and floating Passport. A compact candidate gives a concrete choice without replacing the map. Map labels and the small collection strip are less explicit than the other alternatives.",
+      "strengths": [
+        "Largest continuous geographic context; all three real destination pins are visible.",
+        "One reachable candidate card plus See all preserves a clear next choice.",
+        "Retains the strongest connection to the user's approved Linda reference."
+      ],
+      "tradeoffs": [
+        "Only the first candidate photo is visible initially; comparing all three requires See all or pin selection.",
+        "Collection progress is understated and its purpose requires the Passport explanation.",
+        "Outdoor readability is an inference from contrast and text size; no glare test was run."
+      ]
+    },
+    "b": {
+      "name": "Places first",
+      "url": "macro.html?option=b",
+      "screenshot": "evidence/macro-b.png",
+      "scores": {
+        "figma_fidelity": 3,
+        "outdoor_readability": 4,
+        "destination_recognition": 5,
+        "next_action_clarity": 5,
+        "collection_loop_clarity": 3,
+        "reachability": 4
+      },
+      "total": 24,
+      "rationale": "All three options, distances and visual cues are immediately comparable on white rows. It earns the highest unweighted score for the entry task, but the list dominates and weakens the map-first identity the user explicitly requested.",
+      "strengths": [
+        "Most direct comparison of all three destination names, distances and recognition cues.",
+        "Large full-row destination targets and clear visual separation.",
+        "The upper map retains orientation while the list explains the available choices."
+      ],
+      "tradeoffs": [
+        "Much less map area than A; spatial relationships require more map interaction.",
+        "Collection remains a secondary 0/3 footer.",
+        "Furthest from Linda's map-dominant layout after C; a high total does not satisfy the priority on reference fidelity."
+      ]
+    },
+    "c": {
+      "name": "Collection first",
+      "url": "macro.html?option=c",
+      "screenshot": "evidence/macro-c.png",
+      "scores": {
+        "figma_fidelity": 2,
+        "outdoor_readability": 4,
+        "destination_recognition": 5,
+        "next_action_clarity": 4,
+        "collection_loop_clarity": 5,
+        "reachability": 3
+      },
+      "total": 23,
+      "rationale": "The explicit three-place objective and empty stamp slots best explain the collection loop, and the large Red Bird image supports recognition. The compressed bottom map gives little geographic detail and a central candidate sits farther from the lower reach zone.",
+      "strengths": [
+        "Strongest explanation of why to visit three different places.",
+        "Largest visible recognition photo for the shared Red Bird candidate.",
+        "All three destinations and the same detail actions remain available."
+      ],
+      "tradeoffs": [
+        "Small bottom map and clustered pins weaken orientation and independent route choice.",
+        "A collection goal takes precedence over the user's map-first reference.",
+        "The dominant candidate is higher on the screen and the compact map controls compete for bottom space."
+      ]
+    }
+  },
+  "decision": {
+    "selected": "a",
+    "reason": "Choose Map first because Victor explicitly prioritised fidelity to Linda's composition after rejecting the first redesign. B has the highest unweighted total (24 versus A's 22), but that total is not the sole selection rule. Preserve A's geographic hierarchy; borrow B's concise photo/name/distance/landmark presentation for destination help and C's explicit three-place progress for the existing Nearby/reward surfaces.",
+    "selection_rule": "Reference fidelity is a non-compensatory user constraint; the unweighted sums are reported transparently rather than used to override that preference.",
+    "curated_features": [
+      "A: map-dominant exploration with source-like filters, light counter and floating Passport.",
+      "B: concrete destination photo, distance and recognisable landmark cue in the detail/help surfaces.",
+      "C: a small derived three-place goal and progress on Nearby/reward, without making the collection dashboard the home screen."
+    ]
+  },
+  "qa": {
+    "browser": "Independent in-app browser tab",
+    "checks": [
+      "All three initial layouts visually reviewed at 412 × 1010.",
+      "All three real destination pins remain in each composition; A's See all reveals the same full list.",
+      "Shared Red Bird details show the same 100 m/+30 light/1 stamp, actual description, task, source photo credits and unknown entrance/floor.",
+      "Begin Journey displays an explicitly illustrative confirmation; it does not start GPS or save a stamp.",
+      "Leaflet fade animation disabled for deterministic evidence captures."
+    ],
+    "evidence_kind": "Browser screenshots of the actual isolated macro page, not generated images or different journey states."
+  },
+  "limits": [
+    "No participant study, outdoor-glare test, physical-thumb reach measurement, GPS field test or indoor-route test was run.",
+    "Map tiles show real OpenStreetMap geography, but the starting point, 45 light and 0/3 progress are fixed study fixtures.",
+    "The same three destination records are used; photo availability differs by destination, not by alternative.",
+    "The original map/destination/walking source-state screenshots remain supplemental flow evidence and are not counted as these three macro alternatives."
+  ]
+}

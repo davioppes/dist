@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "status": "reviewed",
+  "method": "Expert heuristic assessment; not a participant study",
+  "scale": {
+    "min": 1,
+    "max": 5,
+    "anchors": {
+      "1": "poor",
+      "3": "adequate",
+      "5": "strong"
+    }
+  },
+  "viewport": {
+    "width": 412,
+    "height": 1010
+  },
+  "reviewer": "Codex reference comparison and browser review",
+  "reviewed_at": "2026-11-06",
+  "variants": {
+    "baseline": {
+      "screenshot": "evidence/reference-v2-baseline.png",
+      "scores": {
+        "figma_fidelity": 5,
+        "outdoor_readability": 3,
+        "destination_recognition": 4,
+        "next_action_clarity": 4,
+        "collection_loop_clarity": 3,
+        "reachability": 3
+      },
+      "rationale": "Best match to Linda’s light-map composition: small left-aligned pastel categories, outlined search, edge counter and isolated destination popup. Small source-style labels remain a readability trade-off.",
+      "destination_screenshot": "evidence/reference-v3-destination-baseline.png"
+    },
+    "type": {
+      "screenshot": "evidence/reference-v2-type.png",
+      "scores": {
+        "figma_fidelity": 4,
+        "outdoor_readability": 4,
+        "destination_recognition": 4,
+        "next_action_clarity": 4,
+        "collection_loop_clarity": 3,
+        "reachability": 3
+      },
+      "rationale": "Slightly larger text improves desktop legibility but moves away from the compact typography explicitly requested. It does not improve the interaction or collection model.",
+      "destination_screenshot": "evidence/reference-v3-destination-type.png"
+    },
+    "spacing": {
+      "screenshot": "evidence/reference-v2-spacing.png",
+      "scores": {
+        "figma_fidelity": 3,
+        "outdoor_readability": 3,
+        "destination_recognition": 4,
+        "next_action_clarity": 4,
+        "collection_loop_clarity": 3,
+        "reachability": 3
+      },
+      "rationale": "More separation around the scan control and map controls is readable but changes Linda’s placement without a clear functional gain.",
+      "destination_screenshot": "evidence/reference-v3-destination-spacing.png"
+    },
+    "dark": {
+      "screenshot": "evidence/reference-v2-dark.png",
+      "scores": {
+        "figma_fidelity": 5,
+        "outdoor_readability": 2,
+        "destination_recognition": 4,
+        "next_action_clarity": 4,
+        "collection_loop_clarity": 3,
+        "reachability": 3
+      },
+      "rationale": "Closely follows Linda’s charcoal, gold and glowing-pin composition. Street labels are substantially less visible; keep this as an optional map appearance rather than the default.",
+      "destination_screenshot": "evidence/reference-v3-destination-dark.png"
+    }
+  },
+  "decision": "Choose the source-faithful baseline light composition, with optional dark map. Baseline and type tie on the unweighted score; Victor’s explicit priority is fidelity to Linda’s design. Keep the destination popup separate from the map and preserve verified arrival in the real app. These scores are heuristic judgements, not measured user outcomes.",
+  "limits": [
+    "No participant study or outdoor glare test was run.",
+    "The photo is an existing attributed HKUST reference, not Linda’s original photo crop.",
+    "Wordmark and mushroom are vector reconstructions because anonymous Figma export requires sign-in.",
+    "The comparison samples do not use GPS or save progress. Real-app flow checks used a separately labelled local GPS harness."
+  ],
+  "iteration": 2,
+  "capture_review": "All four initial maps and all four opened Red Bird destinations were inspected and captured at 412 x 1010 after disabling tile fade on 6 November 2026. This replaces the earlier type-only capture with mismatched tile opacity.",
+  "shared_score_rationale": "Destination content, photo, actions and reward explanation are unchanged across the four variants; identical recognition, action, loop and reachability ratings reflect that common structure, not measured performance."
+}

@@ -1,0 +1,28 @@
+/* Linda-inspired white postage prints; destination-specific illustrations remain. No idle animation. */
+.destination-stamp{--stamp-size:112px;display:inline-grid;position:relative;isolation:isolate;width:var(--stamp-size);max-width:100%;aspect-ratio:12/13;flex-shrink:0;vertical-align:middle;line-height:0;filter:drop-shadow(0 1px 1px #745c4914);transform:none;contain:layout style}
+.destination-stamp>svg{display:block;width:100%;height:100%;overflow:visible}
+.destination-stamp .stamp__print{transform-origin:120px 135px}
+.destination-stamp .stamp__art{color:var(--stamp-ink)}
+.destination-stamp[data-collected="false"] .stamp__art{opacity:1}
+.destination-stamp--pin{--stamp-size:49px;filter:drop-shadow(0 1px 2px #745c4926);transform:none}
+.destination-stamp--pin .stamp__small-type{display:none}
+.destination-stamp--pin .stamp__art{transform:translate(-8px,-21px) scale(1.07);transform-origin:120px 120px}
+.destination-stamp--pin .stamp__collected-mark{transform:none;transform-origin:183px 48px}
+.destination-stamp--card{--stamp-size:112px}
+.destination-stamp--hero{--stamp-size:190px;filter:drop-shadow(0 2px 2px #745c4915)}
+.destination-stamp .stamp__spark{position:absolute;pointer-events:none;opacity:0;width:7px;height:7px;background:var(--stamp-accent);clip-path:polygon(50% 0,62% 37%,100% 50%,62% 62%,50% 100%,37% 62%,0 50%,37% 37%)}
+.destination-stamp .stamp__spark--one{top:17%;left:-5%;--spark-x:-8px;--spark-y:-14px;--spark-delay:200ms}
+.destination-stamp .stamp__spark--two{top:6%;right:7%;--spark-x:8px;--spark-y:-19px;--spark-delay:260ms;width:10px;height:10px}
+.destination-stamp .stamp__spark--three{top:57%;right:-8%;--spark-x:13px;--spark-y:-5px;--spark-delay:320ms}
+.destination-stamp[data-animate="true"] .stamp__print{animation:jy-stamp-press 680ms cubic-bezier(.2,.8,.2,1) both}
+.destination-stamp[data-animate="true"] .stamp__ink{animation:jy-stamp-ink 500ms 130ms ease-out both}
+.destination-stamp[data-animate="true"] .stamp__spark{animation:jy-stamp-spark 680ms var(--spark-delay) ease-out both}
+@keyframes jy-stamp-press{0%{opacity:0;transform:translate(5px,-18px) rotate(12deg) scale(1.24)}32%{opacity:1;transform:translate(0,2px) rotate(-2deg) scale(.94)}53%{transform:translate(0,-2px) rotate(1deg) scale(1.035)}78%,100%{opacity:1;transform:translate(0,0) rotate(0) scale(1)}}
+@keyframes jy-stamp-ink{0%{opacity:.15;clip-path:inset(0 0 100% 0)}48%{opacity:.84}100%{opacity:1;clip-path:inset(0 0 0 0)}}
+@keyframes jy-stamp-spark{0%{opacity:0;transform:translate(0,0) scale(.3)}24%{opacity:1;transform:translate(calc(var(--spark-x)*.4),calc(var(--spark-y)*.4)) scale(1)}100%{opacity:0;transform:translate(var(--spark-x),var(--spark-y)) scale(.15)}}
+[data-motion="off"] .destination-stamp .stamp__print,[data-motion="off"] .destination-stamp .stamp__ink{animation:none!important;opacity:1;transform:none;clip-path:none}
+[data-motion="off"] .destination-stamp .stamp__spark{display:none}
+@media (prefers-reduced-motion: reduce){
+  .destination-stamp .stamp__print,.destination-stamp .stamp__ink{animation:none!important;opacity:1;transform:none;clip-path:none}
+  .destination-stamp .stamp__spark{display:none}
+}

@@ -1,0 +1,179 @@
+{
+  "date": "2026-11-06",
+  "method": "Browser screenshots; app frame rectangles verified separately from outer screenshot size. PNG encoding normalized without changing decoded pixels.",
+  "captures": [
+    {
+      "file": "evidence/macro-a.png",
+      "capture_px": [
+        412,
+        1010
+      ],
+      "app_viewport_css_px": [
+        412,
+        900
+      ],
+      "evidence_kind": "macro alternative"
+    },
+    {
+      "file": "evidence/macro-b.png",
+      "capture_px": [
+        412,
+        1010
+      ],
+      "app_viewport_css_px": [
+        412,
+        900
+      ],
+      "evidence_kind": "macro alternative"
+    },
+    {
+      "file": "evidence/macro-c.png",
+      "capture_px": [
+        412,
+        1010
+      ],
+      "app_viewport_css_px": [
+        412,
+        900
+      ],
+      "evidence_kind": "macro alternative"
+    },
+    {
+      "file": "evidence/reference-v2-baseline.png",
+      "capture_px": [
+        412,
+        1010
+      ],
+      "app_viewport_css_px": [
+        412,
+        915
+      ],
+      "evidence_kind": "controlled map"
+    },
+    {
+      "file": "evidence/reference-v2-type.png",
+      "capture_px": [
+        412,
+        1010
+      ],
+      "app_viewport_css_px": [
+        412,
+        915
+      ],
+      "evidence_kind": "controlled map"
+    },
+    {
+      "file": "evidence/reference-v2-spacing.png",
+      "capture_px": [
+        412,
+        1010
+      ],
+      "app_viewport_css_px": [
+        412,
+        915
+      ],
+      "evidence_kind": "controlled map"
+    },
+    {
+      "file": "evidence/reference-v2-dark.png",
+      "capture_px": [
+        412,
+        1010
+      ],
+      "app_viewport_css_px": [
+        412,
+        915
+      ],
+      "evidence_kind": "controlled map"
+    },
+    {
+      "file": "evidence/reference-v3-destination-baseline.png",
+      "capture_px": [
+        412,
+        1010
+      ],
+      "app_viewport_css_px": [
+        412,
+        915
+      ],
+      "evidence_kind": "controlled destination"
+    },
+    {
+      "file": "evidence/reference-v3-destination-type.png",
+      "capture_px": [
+        412,
+        1010
+      ],
+      "app_viewport_css_px": [
+        412,
+        915
+      ],
+      "evidence_kind": "controlled destination"
+    },
+    {
+      "file": "evidence/reference-v3-destination-spacing.png",
+      "capture_px": [
+        412,
+        1010
+      ],
+      "app_viewport_css_px": [
+        412,
+        915
+      ],
+      "evidence_kind": "controlled destination"
+    },
+    {
+      "file": "evidence/reference-v3-destination-dark.png",
+      "capture_px": [
+        412,
+        1010
+      ],
+      "app_viewport_css_px": [
+        412,
+        915
+      ],
+      "evidence_kind": "controlled destination"
+    },
+    {
+      "file": "evidence/final-v3-reward-simulation.png",
+      "capture_px": [
+        900,
+        930
+      ],
+      "app_viewport_css_px": [
+        390,
+        843.40625
+      ],
+      "evidence_kind": "production app with simulated GPS"
+    },
+    {
+      "file": "evidence/final-v3-passport-simulation.png",
+      "capture_px": [
+        900,
+        930
+      ],
+      "app_viewport_css_px": [
+        390,
+        843.40625
+      ],
+      "evidence_kind": "production app with simulated GPS"
+    },
+    {
+      "file": "evidence/final-v3-desktop-simulation.png",
+      "capture_px": [
+        1280,
+        900
+      ],
+      "app_viewport_css_px": [
+        1280,
+        829.40625
+      ],
+      "evidence_kind": "production desktop with simulated GPS"
+    }
+  ],
+  "limits": [
+    "Screenshots do not establish a physical visit, actual GPS accuracy, present access or participant findings.",
+    "Macro/controlled pages use disclosed fixed sample state.",
+    "Production fixtures live outside the deployable source."
+  ]
+}

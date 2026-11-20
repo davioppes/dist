@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="140" viewBox="0 0 120 140">
+<!-- Vector reconstruction of the gold mushroom silhouette in Linda's supplied Figma; not an exported source asset. -->
+<defs>
+ <radialGradient id="cap" cx=".33" cy=".22" r=".86"><stop stop-color="#ffe793"/><stop offset=".4" stop-color="#ffdc74"/><stop offset=".78" stop-color="#eaa328"/><stop offset="1" stop-color="#bc6b14"/></radialGradient>
+ <linearGradient id="coat" x1="0" x2="1"><stop stop-color="#c87c25"/><stop offset=".34" stop-color="#f7c064"/><stop offset=".72" stop-color="#f3c16d"/><stop offset="1" stop-color="#b16a22"/></linearGradient>
+ <linearGradient id="stem" x1="0" x2="1"><stop stop-color="#e8b45e"/><stop offset=".6" stop-color="#ffe0a0"/><stop offset="1" stop-color="#cb8c39"/></linearGradient>
+ <linearGradient id="foot" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#af6928"/><stop offset="1" stop-color="#87502d"/></linearGradient>
+</defs>
+<path d="m14 34 2-6 2 6 6 2-6 2-2 6-2-6-6-2Zm89 60 2-5 2 5 5 2-5 2-2 5-2-5-5-2Z" fill="#ffd568"/><ellipse cx="60" cy="130" rx="24" ry="4" fill="#412e2b" opacity=".14"/>
+<path d="M49 109 48 128Q52 134 57 128L58 109ZM64 108 65 129Q70 133 73 127L70 108Z" fill="url(#foot)"/>
+<path d="M47 74Q44 93 31 109Q58 122 89 109Q76 94 73 74Z" fill="url(#coat)"/>
+<path d="M51 77Q49 94 45 109L70 110Q66 94 66 76Z" fill="#70402a"/>
+<path d="M45 78 37 97 43 100 54 78M74 78 82 97 76 100 65 78" fill="#e9b463"/>
+<path d="M48 63Q47 76 51 84Q60 88 69 83Q74 72 72 63Z" fill="url(#stem)"/>
+<ellipse cx="60" cy="67" rx="38" ry="9" fill="#b97824"/>
+<path d="M20 61C24 44 40 17 54 13Q60 10 66 14C82 23 96 45 101 61Q105 69 94 72Q62 81 27 71Q17 69 20 61Z" fill="url(#cap)"/>
+<path d="M26 63Q59 76 96 64" fill="none" stroke="#ffe1a0" stroke-opacity=".35" stroke-width="2"/>
+</svg>

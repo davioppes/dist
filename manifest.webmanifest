@@ -1,0 +1,32 @@
+{
+  "id": "/",
+  "name": "JiaYou",
+  "short_name": "JiaYou",
+  "description": "Explore nearby places, save visits and collect destination stamps.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f8f8",
+  "theme_color": "#f5f8f8",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "./assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "travel",
+    "games",
+    "lifestyle"
+  ],
+  "lang": "en"
+}

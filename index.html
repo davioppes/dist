@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff"><meta name="apple-mobile-web-app-title" content="JiaYou"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="description" content="Explore nearby places, save visits and collect destination stamps with JiaYou.">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>JiaYou — Explore & collect</title>
+  <link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./assets/icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="./assets/icon-192.png">
+  <link rel="stylesheet" href="./vendor/leaflet/leaflet.css"><link rel="stylesheet" href="./style.css"><link rel="stylesheet" href="./companion.css"><link rel="stylesheet" href="./refinements.css"><link rel="stylesheet" href="./stamps.css"><link rel="stylesheet" href="./platform.css"><link rel="stylesheet" href="./phone-app.css"><link rel="stylesheet" href="./map-app.css"><link rel="stylesheet" href="./journey-app.css"><link rel="stylesheet" href="./linda-ui.css">
+  <script defer src="./vendor/leaflet/leaflet.js"></script><script type="module" src="./app.mjs"></script><script type="module" src="./theme.mjs"></script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to discoveries</a>
+<div class="app-shell">
+  <aside class="journal">
+    <header class="brand-row"><a href="#explore" class="brand" aria-label="JiaYou home"><img src="./assets/icon.svg" alt="" width="36" height="36"><span>JiaYou<span class="brand-chinese">加油</span></span></a><button class="icon-button" data-action="settings" aria-label="Open settings" data-icon="settings"></button></header>
+    <div class="journal-intro"><h1>Your next stop.</h1><p>Explore nearby. Collect somewhere new.</p></div>
+    <button class="companion-card" data-action="light"><span class="companion-copy"><span class="field-label">Your companion</span><strong id="companion-message">Ready to explore</strong><span>Visit a place to refill your light.</span><span class="light-line"><span data-icon="flame"></span><b id="sidebar-oil">45</b> / 100 light</span><span class="oil-track"><i id="sidebar-oil-fill"></i></span></span><span class="companion-art" data-companion-slot="card"></span></button>
+    <nav class="desktop-nav" aria-label="Main navigation"></nav>
+    <div class="journal-bottom"><div class="local-note"><span data-icon="leaf"></span><p>Your city. Your collection.</p></div><button class="text-button" data-action="install"><span data-icon="download"></span>Install JiaYou</button><span class="version-label">JiaYou 1.6</span></div>
+  </aside>
+  <main id="main" class="main-stage">
+    <header class="mobile-header">
+      <a href="#explore" class="brand" aria-label="JiaYou home"><img src="./assets/linda-wordmark.svg" alt="JiaYou" width="100" height="34"></a>
+      <label class="search-box"><input id="place-search" type="search" placeholder="" aria-label="Search nearby discoveries"><span data-icon="search"></span></label>
+      <div class="header-actions"><button class="icon-button menu-toggle" data-action="settings" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button></div>
+    </header>
+    <section id="explore-view" class="view active" aria-label="Explore map">
+      <div id="map" aria-label="Interactive discovery map"></div><canvas id="fog" aria-hidden="true"></canvas>
+      <div class="map-top"><span id="region-label" class="visually-hidden">Near you</span><div id="filters" class="filter-row" aria-label="Filter discoveries"></div><button class="scan-button" data-action="refresh" aria-label="Scan This Area: places around my location" title="Find places near your current location">Scan This Area</button></div>
+      <button class="light-pill map-light" data-action="light" aria-label="Your companion’s light"><span data-icon="flame"></span><b id="mobile-oil">45</b></button>
+      <div id="status-banner" class="status-banner" role="status" hidden></div>
+      <div class="map-controls"><button class="icon-button" data-action="locate" aria-label="Find my location" data-icon="locate"></button><button class="icon-button" data-action="zoom-in" aria-label="Zoom in" data-icon="plus"></button><button class="icon-button" data-action="zoom-out" aria-label="Zoom out" data-icon="minus"></button></div>
+      <div id="location-gate" class="location-gate" role="region" aria-label="Location access"></div>
+      <button id="nearby-toggle" class="nearby-toggle" data-action="nearby" aria-expanded="false" aria-controls="nearby-drawer"><span data-icon="compass"></span>Nearby <b class="nearby-count" data-nearby-count></b></button>
+      <section id="nearby-drawer" class="discovery-tray" aria-label="Nearby discoveries" hidden><div class="tray-heading"><div><span class="field-label" id="nearby-label">Choose a destination</span><h3>Nearby <span id="place-count"></span></h3></div><div class="tray-actions"><button class="text-button" data-action="refresh" aria-label="Find more places nearby"><span data-icon="refresh"></span><span class="refresh-label">Refresh</span></button><button class="icon-button" data-action="close-nearby" aria-label="Close nearby places" data-icon="x"></button></div></div><div id="collection-goal" class="collection-goal"></div><div id="place-list" class="place-list"></div></section>
+      <section id="walk-hud" class="walk-hud" aria-label="Current walk" hidden></section>
+      <div class="map-credit"><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap contributors</a> · <a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a> · <a href="https://www.openstreetmap.org/fixthemap" target="_blank" rel="noopener">Fix map</a></div>
+    </section>
+    <section id="passport-view" class="view content-view" hidden></section>
+    <nav class="bottom-nav" aria-label="Main navigation"></nav>
+  </main>
+</div>
+<dialog id="sheet" class="sheet-dialog" aria-labelledby="sheet-title"><div id="sheet-content"></div></dialog>
+<dialog id="welcome" class="welcome-dialog" aria-labelledby="welcome-title"><div class="welcome-art"><div class="welcome-stamps" aria-hidden="true"></div><div class="welcome-explorer" data-companion-slot="hero"></div><span class="welcome-caption">A new place. A new stamp.</span></div><div class="welcome-copy"><span class="brand welcome-brand">JiaYou <span class="brand-chinese">加油</span></span><h1 id="welcome-title">Go somewhere<br>worth remembering.</h1><p>Find a nearby place, walk there and save your visit. Collect its stamp and refill your light.</p><div class="welcome-steps"><span><i data-icon="pin"></i>Discover</span><span><i data-icon="camera"></i>Capture</span><span><i data-icon="passport"></i>Collect</span></div><button class="button primary" data-action="start-live">Explore nearby <span data-icon="arrow-right"></span></button><p class="privacy-note">Location finds places through OpenStreetMap. Photos and progress stay on this device.</p><button class="text-button" data-action="install">Install on your phone</button><button class="text-button" data-action="dismiss-welcome">Browse map</button></div></dialog>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<input type="file" id="import-file" accept="application/json,.json" hidden>
+</body></html>

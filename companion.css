@@ -1,0 +1,339 @@
+/* The container never transforms: Leaflet owns the marker's position. */
+.companion {
+  --companion-size: 260px;
+  --companion-glow: .309;
+  --companion-spread: .96;
+  --companion-lift: 5px;
+  --companion-bright-lift: 8px;
+  --companion-lean: 1.6deg;
+  --companion-step: 3px;
+  --companion-torch-x: 82%;
+  --companion-torch-y: 30%;
+  display: inline-block;
+  position: relative;
+  width: var(--companion-size);
+  height: var(--companion-size);
+  flex: 0 0 auto;
+  vertical-align: middle;
+  line-height: 0;
+  isolation: isolate;
+  pointer-events: none;
+}
+
+.companion--hero { --companion-lift: 6px; --companion-bright-lift: 9px; }
+.companion--card { --companion-size: 164px; --companion-lift: 2.5px; --companion-bright-lift: 4px; --companion-lean: 1deg; }
+.companion--reward { --companion-size: 160px; }
+.companion--arrival { --companion-size: 180px; }
+.companion--map {
+  --companion-lift: 1.2px;
+  --companion-bright-lift: 2px;
+  --companion-lean: .6deg;
+  --companion-step: 2px;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.companion .companion__motion,
+.companion .companion__figure {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: 50% 85%;
+}
+
+.companion .companion__motion {
+  animation: companion-curious-shift 6.4s ease-in-out infinite;
+}
+
+.companion .companion__figure {
+  animation: companion-glowing-breathe 3.4s ease-in-out infinite;
+}
+
+/* Specific enough to reset legacy image sizing in the existing art slots. */
+.companion .companion__figure .companion__image {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  object-fit: contain;
+  border-radius: 0;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter: drop-shadow(0 2px 2px #493f2a10);
+}
+
+.companion .companion__shadow {
+  position: absolute;
+  left: 35%;
+  top: 88%;
+  width: 29%;
+  height: 4%;
+  border-radius: 50%;
+  background: #65543b16;
+  filter: blur(2px);
+}
+
+/* The map already has a small ground shadow in its marker container. */
+.companion--map .companion__shadow { display: none; }
+
+.companion .companion__torch-glow {
+  position: absolute;
+  left: var(--companion-torch-x);
+  top: var(--companion-torch-y);
+  width: 31%;
+  height: 31%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffe7a8b0 0, #f5cf6e54 34%, #f5cf6e00 72%);
+  opacity: var(--companion-glow);
+  transform: translate(-50%, -50%) scale(var(--companion-spread));
+  transition: opacity 1.1s ease, transform 1.1s ease;
+  animation: companion-glowing-flame 2.8s ease-in-out infinite;
+}
+
+.companion .companion__spark {
+  position: absolute;
+  top: 17%;
+  left: 88%;
+  width: 5px;
+  height: 5px;
+  border-radius: 1px;
+  background: #e8b953;
+  opacity: 0;
+  transform: rotate(45deg) scale(.3);
+}
+
+/* These marks appear only in response to walking or arrival, then disappear. */
+.companion .companion__arrival-ring {
+  position: absolute;
+  left: 27%;
+  top: 84%;
+  width: 48%;
+  height: 13%;
+  border: 1.5px solid #b7a064;
+  border-radius: 50%;
+  opacity: 0;
+}
+.companion .companion__trail { position: absolute; inset: 0; }
+.companion .companion__trail i {
+  position: absolute;
+  left: 33%;
+  top: 87%;
+  width: 3%;
+  height: 5%;
+  border-radius: 50%;
+  background: #9a9574;
+  opacity: 0;
+}
+.companion .companion__trail i:nth-child(2) { left: 24%; top: 90%; }
+
+.companion[data-companion-state="low"] .companion__figure {
+  animation: companion-resting-breathe 5.2s ease-in-out infinite;
+}
+.companion[data-companion-state="low"] .companion__motion {
+  animation: none;
+}
+.companion[data-companion-state="low"] {
+  --companion-torch-x: 68%;
+  --companion-torch-y: 51%;
+}
+.companion[data-companion-state="low"] .companion__torch-glow {
+  width: 23%;
+  height: 23%;
+  animation: companion-resting-ember 4.4s ease-in-out infinite;
+}
+.companion[data-companion-state="bright"] .companion__motion {
+  animation: companion-bright-poise 4.8s ease-in-out infinite;
+}
+.companion[data-companion-state="bright"] .companion__figure {
+  animation: companion-bright-breathe 2.6s ease-in-out infinite;
+}
+.companion[data-companion-state="bright"] .companion__torch-glow {
+  width: 37%;
+  height: 37%;
+  animation: companion-bright-flame 2.2s ease-in-out infinite;
+}
+.companion[data-companion-state="idle"] .companion__shadow {
+  animation: companion-breath-shadow 3.4s ease-in-out infinite;
+}
+.companion[data-companion-state="bright"] .companion__shadow {
+  animation: companion-breath-shadow 2.6s ease-in-out infinite;
+}
+
+.companion[data-companion-state="walking"] .companion__motion {
+  animation: companion-footsteps .92s ease-in-out infinite;
+}
+.companion[data-companion-state="walking"] .companion__figure {
+  animation: none;
+}
+.companion[data-companion-state="walking"] .companion__shadow {
+  animation: companion-step-shadow .92s ease-in-out infinite;
+}
+.companion[data-companion-state="walking"] .companion__trail i {
+  animation: companion-footprint .92s ease-out infinite;
+}
+.companion[data-companion-state="walking"] .companion__trail i:nth-child(2) {
+  animation-delay: -.46s;
+}
+.companion[data-companion-state="walking"] {
+  --companion-torch-x: 85%;
+}
+
+.companion[data-companion-state="reward"],
+.companion[data-companion-state="arrival"] { --companion-torch-y: 16%; }
+.companion[data-companion-state="reward"] .companion__image,
+.companion[data-companion-state="arrival"] .companion__image { transform: scale(.94); }
+.companion[data-companion-state="reward"] .companion__motion {
+  animation: companion-reward 1.2s cubic-bezier(.22,.68,.24,1) 1 both;
+}
+.companion[data-companion-state="reward"] .companion__figure,
+.companion[data-companion-state="arrival"] .companion__figure {
+  animation: none;
+}
+.companion[data-companion-state="reward"] .companion__spark {
+  animation: companion-single-spark .9s .2s ease-out 1 both;
+}
+.companion[data-companion-state="reward"] .companion__torch-glow,
+.companion[data-companion-state="arrival"] .companion__torch-glow {
+  animation: companion-torch-flare 1.2s ease-out 1 both;
+}
+.companion[data-companion-state="arrival"] .companion__motion {
+  animation: companion-arrival .85s ease-out 1 both;
+}
+.companion[data-companion-state="arrival"] .companion__arrival-ring {
+  animation: companion-arrival-ring-a 1.3s ease-out 1 both;
+}
+.companion[data-companion-state="arrival"][data-companion-arrival-cycle="b"] .companion__arrival-ring {
+  animation-name: companion-arrival-ring-b;
+}
+.companion[data-companion-state="arrival"] .companion__arrival-ring--echo {
+  animation-delay: .16s;
+}
+
+@keyframes companion-glowing-breathe {
+  0%, 100% { transform: translateY(0); }
+  46% { transform: translateY(calc(-1 * var(--companion-lift))) scaleY(1.012); }
+}
+@keyframes companion-curious-shift {
+  0%, 18%, 100% { transform: rotate(0); }
+  42% { transform: rotate(calc(-1 * var(--companion-lean))); }
+  72% { transform: rotate(calc(var(--companion-lean) * .65)); }
+}
+@keyframes companion-bright-breathe {
+  0%, 100% { transform: translateY(0); }
+  40% { transform: translateY(calc(-1 * var(--companion-bright-lift))) scaleY(1.015); }
+  74% { transform: translateY(-1px); }
+}
+@keyframes companion-bright-poise {
+  0%, 12%, 100% { transform: rotate(0); }
+  38% { transform: rotate(calc(-1.35 * var(--companion-lean))); }
+  66% { transform: rotate(calc(var(--companion-lean) * .8)); }
+}
+@keyframes companion-resting-breathe {
+  0%, 100% { transform: translateY(0); }
+  48% { transform: translateY(-2px) scaleY(1.009); }
+}
+@keyframes companion-breath-shadow {
+  0%, 100% { transform: scaleX(1); opacity: 1; }
+  46% { transform: scaleX(.84); opacity: .7; }
+}
+@keyframes companion-glowing-flame {
+  0%, 100% { opacity: var(--companion-glow); transform: translate(-50%, -50%) scale(var(--companion-spread)); }
+  45% { opacity: calc(var(--companion-glow) + .1); transform: translate(-50%, -50%) scale(calc(var(--companion-spread) * 1.1)); }
+}
+@keyframes companion-bright-flame {
+  0%, 100% { opacity: var(--companion-glow); transform: translate(-50%, -50%) scale(var(--companion-spread)); }
+  42% { opacity: calc(var(--companion-glow) + .22); transform: translate(-50%, -50%) scale(calc(var(--companion-spread) * 1.22)); }
+}
+@keyframes companion-resting-ember {
+  0%, 100% { opacity: var(--companion-glow); transform: translate(-50%, -50%) scale(var(--companion-spread)); }
+  52% { opacity: calc(var(--companion-glow) * .62); transform: translate(-50%, -50%) scale(calc(var(--companion-spread) * .85)); }
+}
+@keyframes companion-footsteps {
+  0%, 50%, 100% { transform: translateY(0) rotate(-.6deg); }
+  25% { transform: translateY(calc(-1 * var(--companion-step))) rotate(1.2deg); }
+  75% { transform: translateY(calc(-1 * var(--companion-step))) rotate(-1.2deg); }
+}
+@keyframes companion-step-shadow {
+  0%, 50%, 100% { transform: scaleX(1); opacity: 1; }
+  25%, 75% { transform: scaleX(.9); opacity: .7; }
+}
+@keyframes companion-reward {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  20% { transform: translateY(2px) rotate(1deg) scale(.98); }
+  48% { transform: translateY(-7px) rotate(-2deg) scale(1.02); }
+  76% { transform: translateY(-1px) rotate(.5deg); }
+}
+@keyframes companion-single-spark {
+  0%, 12% { opacity: 0; transform: translateY(2px) rotate(45deg) scale(.3); }
+  35% { opacity: .8; transform: translateY(-3px) rotate(45deg) scale(1); }
+  100% { opacity: 0; transform: translateY(-14px) rotate(45deg) scale(.25); }
+}
+@keyframes companion-footprint {
+  0%, 8%, 100% { opacity: 0; transform: translate(0, 0) rotate(-18deg) scale(.8); }
+  24% { opacity: .38; }
+  82% { opacity: 0; transform: translate(-4px, 3px) rotate(-18deg) scale(.55); }
+}
+@keyframes companion-arrival {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  48% { transform: translateY(-3px) rotate(-1.5deg); }
+}
+@keyframes companion-torch-flare {
+  0%, 100% { opacity: var(--companion-glow); transform: translate(-50%, -50%) scale(var(--companion-spread)); }
+  36% { opacity: calc(var(--companion-glow) + .28); transform: translate(-50%, -50%) scale(calc(var(--companion-spread) * 1.35)); }
+}
+/* Two identical names let a genuinely new destination replay its one-shot ring. */
+@keyframes companion-arrival-ring-a {
+  0% { opacity: 0; transform: scale(.6); }
+  20% { opacity: .5; }
+  100% { opacity: 0; transform: scale(1.6); }
+}
+@keyframes companion-arrival-ring-b {
+  0% { opacity: 0; transform: scale(.6); }
+  20% { opacity: .5; }
+  100% { opacity: 0; transform: scale(1.6); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .companion .companion__motion,
+  .companion .companion__figure,
+  .companion .companion__shadow,
+  .companion .companion__arrival-ring,
+  .companion .companion__trail i,
+  .companion .companion__spark {
+    animation: none !important;
+    transform: none !important;
+  }
+  .companion .companion__torch-glow { animation: none !important; transition: none !important; }
+  .companion .companion__spark,
+  .companion .companion__arrival-ring,
+  .companion .companion__trail { display: none; }
+}
+
+html[data-motion="off"] .companion .companion__motion,
+html[data-motion="off"] .companion .companion__figure,
+html[data-motion="off"] .companion .companion__shadow,
+html[data-motion="off"] .companion .companion__arrival-ring,
+html[data-motion="off"] .companion .companion__trail i,
+html[data-motion="off"] .companion .companion__spark { animation: none !important; transform: none !important; }
+html[data-motion="off"] .companion .companion__torch-glow { animation: none !important; transition: none !important; }
+html[data-motion="off"] .companion .companion__spark,
+html[data-motion="off"] .companion .companion__arrival-ring,
+html[data-motion="off"] .companion .companion__trail { display: none; }
+
+/* Visibility is monitored once per document; loops resume rather than restart. */
+.companion[data-companion-visible="false"] *,
+.companion[data-companion-visible="false"] *:before,
+.companion[data-companion-visible="false"] *:after,
+html[data-companion-page="hidden"] .companion *,
+html[data-companion-page="hidden"] .companion *:before,
+html[data-companion-page="hidden"] .companion *:after {
+  animation-play-state: paused !important;
+  transition: none !important;
+}

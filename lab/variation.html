@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#ffffff"><title>JiaYou — Linda reference study</title><link rel="stylesheet" href="../vendor/leaflet/leaflet.css"><link rel="stylesheet" href="variation.css"></head>
+<body>
+<main class="phone" id="prototype" aria-label="Isolated JiaYou design sample">
+  <header class="app-header">
+    <a class="wordmark" href="./" aria-label="JiaYou design lab"><svg viewBox="0 0 76 25" role="img" aria-label="JIAYOU"><path d="M9 3v14c0 5-7 5-7 0M16 3v19M22 22 28 3l6 19M24 15h8M36 3l5 9 5-9m-5 9v10M54 3c-7 0-7 19 0 19s7-19 0-19ZM65 3v13c0 8 9 8 9 0V3"/></svg></a>
+    <button class="search" data-action="search" aria-label="Search sample destinations"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></svg></button>
+    <button class="menu icon-button" data-action="menu" aria-label="About this sample"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </header>
+  <section class="map-stage" aria-label="HKUST sample map">
+    <div id="map" aria-label="OpenStreetMap map around HKUST"></div>
+    <nav class="categories" aria-label="Destination categories">
+      <button class="category cafe" data-category="food" aria-pressed="false"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h12v11H4zM16 7h2a4 4 0 0 1 0 8h-2M3 21h15"/></svg>CAFE</span></button>
+      <button class="category museum" data-category="culture" aria-pressed="false"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 7 9-5 9 5ZM3 21h18M6 10v8m6-8v8m6-8v8M3 9h18"/></svg>MUSEUM</span></button>
+      <button class="category nature" data-category="nature" aria-pressed="false"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 4C7 3 3 6 5 14s14 8 14-10ZM5 21 15 10"/></svg>NATURE</span></button>
+    </nav>
+    <button class="scan" data-action="scan">Scan This Area</button>
+    <div class="light-counter" aria-label="45 sample light"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2c1 6 6 7 6 13a8 8 0 0 1-16 0c0-4 3-7 6-9-1 5 0 7 2 7s3-6 2-11Z"/></svg><span>45</span></div>
+    <button class="passport" data-action="passport" aria-label="Open sample passport"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="19" rx="1"/><circle cx="12" cy="10" r="4"/><path d="M8 10h8M12 6c-2 2-2 6 0 8 2-2 2-6 0-8ZM9 18h6"/></svg></button>
+    <div class="map-controls" role="group" aria-label="Map controls"><button data-action="locate" aria-label="Return to sample map center"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3.5"/><path d="M12 1v4m0 14v4M1 12h4m14 0h4"/></svg></button><button data-action="zoom-in" aria-label="Zoom in"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button><button data-action="zoom-out" aria-label="Zoom out"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg></button></div>
+  </section>
+  <section class="walking-stage" hidden aria-label="Sample walking view"><svg class="walk-route" viewBox="0 0 412 845" preserveAspectRatio="none" aria-hidden="true"><path d="M112 205 116 360 159 508 286 534 328 683"/></svg><div class="destination-glow"></div><button class="walk-destination" data-action="place" aria-label="Open Red Bird destination"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-9 8-14a8 8 0 0 0-16 0c0 5 8 14 8 14Z"/><circle cx="12" cy="8" r="2.5"/></svg></button><div class="walker-glow"></div><img class="walking-character" src="../assets/linda-character.svg" alt="Gold hooded JiaYou companion"><button class="walk-back" data-action="reset">Back to sample map</button></section>
+  <div class="modal-backdrop" id="modal-backdrop" hidden></div>
+  <section class="destination-modal" id="destination-modal" role="dialog" aria-modal="true" aria-labelledby="destination-title" hidden>
+    <button class="close" data-action="close" aria-label="Close destination"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17"/></svg></button>
+    <h1 id="destination-title">HKUST RED BIRD</h1>
+    <figure><img src="../assets/places/hkust-red-bird.webp" alt="Red crescent sundial in circular paving at HKUST"><figcaption><a href="https://commons.wikimedia.org/wiki/File:HKUST_Sundial.JPG" target="_blank" rel="noopener">Memes, 2005</a> · <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a> · resized/compressed</figcaption></figure>
+    <div class="facts"><span>100m</span><span>+30 light</span><span>1 stamp</span></div>
+    <p class="description"><strong>Description:</strong> The Sundial Sculpture at the Piazza has become the icon of HKUST. Officially called the “Circle of Time”, it is often called the “Red Bird”.</p>
+    <p class="task"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 7 5-1 2-3h4l2 3 5 1v13H3Z"/><circle cx="12" cy="13" r="4"/></svg><span>Task: Take a selfie with the sundial</span></p>
+    <div class="destination-actions"><button class="begin" data-action="begin">Begin Journey</button><button class="already" data-action="already">Already Been</button></div>
+  </section>
+  <section class="info-modal" id="info-modal" role="dialog" aria-modal="true" aria-labelledby="info-title" hidden><button class="close" data-action="close" aria-label="Close sample information"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17"/></svg></button><h2 id="info-title"></h2><div id="info-content"></div></section>
+  <div class="toast" id="toast" role="status" hidden></div>
+</main>
+<aside class="lab-disclosure"><a href="./">Design lab</a><span id="variant-name">Linda reference · baseline</span><p>Isolated visual sample. Pins and 45 light are illustrative. No GPS, camera or saved progress. Place access is unverified.</p></aside>
+<script src="../vendor/leaflet/leaflet.js"></script><script type="module" src="variation.mjs"></script>
+</body></html>
